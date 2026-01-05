@@ -7,17 +7,15 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
-// Our build process puts the Vite output in `dist/public`.
-// The server entry point is compiled to `dist/index.js`.
-// So, the running server's __dirname will be the `dist` folder.
-const staticPath = path.resolve(__dirname, "public");
+// When the server runs, __dirname will be the `dist` folder.
+// Vite also places its output in the `dist` folder.
+// So, the `dist` folder itself is the correct static path.
+const staticPath = __dirname;
 
 app.use(express.static(staticPath));
 
-// All other requests are handled by the client-side router in index.html.
 app.get("*", (_req, res) => {
   res.sendFile(path.join(staticPath, "index.html"));
 });
 
-// Export the Express app for Vercel's serverless runtime.
 export default app;
