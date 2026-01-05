@@ -7,10 +7,10 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
-// When the server runs, __dirname will be the `dist` folder.
-// Vite also places its output in the `dist` folder.
-// So, the `dist` folder itself is the correct static path.
-const staticPath = __dirname;
+// __dirname will be `dist` at runtime.
+// vite.config.ts places client assets in `dist/public`.
+// Therefore, the correct path is `dist/public`.
+const staticPath = path.join(__dirname, "public");
 
 app.use(express.static(staticPath));
 
