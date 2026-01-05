@@ -4,5 +4,6 @@
       "COREPACK_ENABLE_STRICT": "0"
     }
   },
+  "installCommand": "pnpm install",
   "buildCommand": "pnpm run build"
 }
