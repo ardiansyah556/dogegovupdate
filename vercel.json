@@ -3,5 +3,6 @@
     "env": {
       "COREPACK_ENABLE_STRICT": "0"
     }
-  }
+  },
+  "buildCommand": "pnpm run build"
 }
