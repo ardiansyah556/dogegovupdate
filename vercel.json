@@ -1,24 +1,7 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "dist/public" }
-    },
-    {
-      "src": "dist/index.js",
-      "use": "@vercel/node"
+  "build": {
+    "env": {
+      "COREPACK_ENABLE_STRICT": "0"
     }
-  ],
-  "routes": [
-    {
-      "src": "/assets/(.*)",
-      "dest": "/public/assets/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "dist/index.js"
-    }
-  ]
+  }
 }
